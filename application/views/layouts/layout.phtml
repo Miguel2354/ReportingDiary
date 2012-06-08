@@ -1,0 +1,54 @@
+<?php echo $this->doctype(); ?>
+<html>
+<head>
+	<?php echo $this->headMeta(); ?>
+	<?php echo $this->headTitle(); ?>
+	<?php echo $this->headLink(); ?>
+	
+</head>
+<body>
+<div class="container-fluid">
+<!--NAVIGATION-->
+	<div class="row-fluid">
+		<div class="span12">
+			<div id="menu" class="navbar navbar-inner container">
+				<ul class="nav nav-pills">
+					<li>
+						<a href="<?php echo $this->url(array(), null, true); ?>">Home</a>
+					</li>
+					<li>
+						<a href="<?php echo $this->url(array('controller'=>'reportingdiary', 'action'=>'index'), null, true); ?>">MyReportingDiary</a>
+					</li>
+				</ul>
+
+				<form id="search" class="navbar-search pull-right">
+					<input type="text" class="search-query" placeholder="Search">
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--HEADER-->
+	<div class="row-fluid">
+		<div class="span6 company-name">
+			<!--LOGO-->
+			<b>ReportingDiary</b>
+		</div>
+		<div class="span6">
+			<!--LOGIN-->
+			<form id="login" class="well form-inline pull-right">
+				<input type="text" class="input-small" placeholder="Email">
+				<input type="password" class="input-small" placeholder="Password">
+				<label class="checkbox">
+					<input type="checkbox"> Remember me
+				</label>
+				<button type="submit" class="btn btn-primary btn-mini"><i class="icon-user icon-white"></i>Sign in</button>
+			</form>
+		</div>
+	</div>
+
+	<?php echo $this->layout()->content; ?>
+	<?php echo $this->partial("_footer.phtml"); ?>
+</div>
+</body>
+</html>

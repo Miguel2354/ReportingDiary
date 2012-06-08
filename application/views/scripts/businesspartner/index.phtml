@@ -1,0 +1,21 @@
+<?php if($this->businesspartner) : ?>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>VAT</th>
+					<th>Date new</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php echo $this->partialLoop('businesspartner/_businesspartnerRow.phtml', $this->businesspartner); ?>
+			</tbody>
+			<tcaption><h6>Business Partner</h6></tcaption>
+		</table>
+	<?php else : ?>
+		<div class="alert alert-hint">
+			<h4 class="alert-heading">Hint:</h4>
+			No business partner found in the database.<br><br>
+		</div>
+	<?php endif; ?>
