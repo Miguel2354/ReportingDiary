@@ -22,11 +22,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		//add stylesheets
 		$view->headLink()->appendStylesheet(ROOT_DIR . '/css/bootstrap.css')
 			 ->headLink()->appendStylesheet(ROOT_DIR . '/css/quitesimply.css');
+		
 	}
 	
 	public function run()
 	{
-		$this->setupDatabase();		
+		$this->setupDatabase();	
 		
 		//Set layout for all pages	
 		Zend_Layout::startMvc(array('layoutPath' => APPLICATION_PATH . '/views/layouts'));
@@ -40,11 +41,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		/**
 		 * Loading configuration from ini file
 		 */
-		// load configuration
-		Zend_Registry::set('configSection', 'production');
-		$configuration = new Zend_Config_Ini(APPLICATION_PATH . '/configs/application.ini',
-				'production');
-		Zend_Registry::set('configuration', $configuration);
+
+		
+		$iniPath = APPLICATION_PATH . '/configs/application.ini';
+		$configuration = new Zend_Config_Ini(
+				$iniPath,
+				'production'
+		);
 		
 		/**
 		 * Creating the database handler from the loaded ini file
@@ -62,7 +65,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		 */
 		$registry = Zend_Registry::getInstance();
 		$registry->configuration = $configuration;
-//		$registry->dbAdapter     = $dbAdapter;
+		$registry->dbAdapter     = $dbAdapter;
 		/**
 		 * Now that we have the values on the Registry, lets cleanuo the variables
 		 * from the script scope
