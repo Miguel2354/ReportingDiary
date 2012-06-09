@@ -23,15 +23,20 @@ class DatabaseAccess {
 	}
 	
 	public function getResult($sql) {
-
-		$db = Zend_Registry::get('dbAdapter');
-		$db->getConnection();
-		
-		$result = $db->query($sql);
+		try {
 			
-		$db->closeConnection();
-		
-		return $result->fetchAll();
+			$db = Zend_Registry::get('dbAdapter');
+			$db->getConnection();
+			
+			$result = $db->query($sql);
+				
+			$db->closeConnection();
+			
+			return $result->fetchAll();
+			
+		} catch (Exception $e) {
+			ErrorController::throwError($e->getMessage());
+		}
 	}
 	
 }

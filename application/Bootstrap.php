@@ -32,7 +32,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 				 ->headScript()->appendFile(ROOT_DIR . '/js/highcharts.js');
 			
 		} catch (Exception $e) {
-			ErrorController::throwError($e->__toString());
+			ErrorController::throwError($e->getMessage());
 		}
 	}
 	
@@ -49,7 +49,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 			parent::run();
 
 		} catch (Exception $e) {
-			ErrorController::throwError($e->__toString());
+			ErrorController::throwError($e->getMessage());
 		}
 	}
 
@@ -92,7 +92,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 			unset($dbAdapter, $registry, $configuration);
 
 		} catch (Exception $e) {
-			ErrorController::throwError($e->__toString());
+			ErrorController::throwError($e->getMessage());
 		}
 	}	
 }
