@@ -9,9 +9,9 @@ class BusinesspartnerController extends Zend_Controller_Action
     }
 
     public function indexAction()
-    {    	
-    	$businesspartner = new Businesspartner();
-    	$this->view->businesspartner = $businesspartner->getBusinesspartnerList();
+    {
+		$businesspartner = new Businesspartner();
+		$this->view->businesspartner = $businesspartner->getBusinesspartnerList();    		
     }
 
 
