@@ -1,0 +1,26 @@
+
+<a href="<?php echo $this->url(array('controller'=>'preparation', 'action'=>'statuschart')); ?>">Chart</a>
+
+<br> <br>
+
+<?php if($this->preparation) : ?>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Status</th>
+					<th>lpr_udf8</th>
+					<th>lpr_udf17</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php echo $this->partialLoop('preparation/_preparationRow.phtml', $this->preparation); ?>
+			</tbody>
+			<tcaption><h6>Requirements</h6></tcaption>
+		</table>
+	<?php else : ?>
+		<div class="alert alert-hint">
+			<h4 class="alert-heading">Hint:</h4>
+			No requirements found in the database.<br><br>
+		</div>
+	<?php endif; ?>
