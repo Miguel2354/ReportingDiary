@@ -2,8 +2,8 @@
 require_once APPLICATION_PATH . '/controllers/ErrorController.php';
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
-{
-	function _initView()
+{	
+	protected function _initView()
 	{
 		try {
 			
@@ -40,9 +40,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	{
 		try {
 			
-			// TODO maintenance: seperate "ini"-reading from database setup
-			$this->setupDatabase();
-			
+			// write configuration and database adapter to the registry
+			$this->setConfigurationInRegistry('production');
+
 			// Set layout for all pages	
 			Zend_Layout::startMvc(array('layoutPath' => APPLICATION_PATH . '/views/layouts'));
 			
@@ -53,7 +53,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		}
 	}
 
-	public function setupDatabase()
+	public function setConfigurationInRegistry($environment)
 	{
 		try {
 			
@@ -63,7 +63,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 			$iniPath = APPLICATION_PATH . '/configs/application.ini';
 			$configuration = new Zend_Config_Ini(
 				$iniPath,
-				'production'
+				$environment
 			);
 			
 			/**
@@ -75,7 +75,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 			 * Lets define the newly created handler as our default database handler
 			*/
 			Zend_Db_Table_Abstract::setDefaultAdapter($dbAdapter);
-			Zend_Registry::set('db', $dbAdapter);
 			
 			/**
 			 * Lets add the configurations and the database handler to Registry
@@ -89,7 +88,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 			 * Now that we have the values on the Registry, lets cleanuo the variables
 			 * from the script scope
 			 */
-			unset($dbAdapter, $registry, $configuration);
+			unset($configuration, $dbAdapter, $registry);
 
 		} catch (Exception $e) {
 			ErrorController::throwError($e->getMessage());
