@@ -28,6 +28,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	public function run()
 	{
 		$this->setupDatabase();	
+		
 		//Set layout for all pages	
 		Zend_Layout::startMvc(array('layoutPath' => APPLICATION_PATH . '/views/layouts'));
 		
@@ -40,11 +41,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		/**
 		 * Loading configuration from ini file
 		 */
-		// load configuration
-		//Zend_Registry::set('configSection', 'production');
-		//$config = new Zend_Config_Ini(APPLICATION_PATH . '/configs/application.ini',
-		//		'production');
-		//Zend_Registry::set('config', $config);
+
 		
 		$iniPath = APPLICATION_PATH . '/configs/application.ini';
 		$configuration = new Zend_Config_Ini(
@@ -60,6 +57,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		 * Lets define the newly created handler as our default database handler
 		*/
 		Zend_Db_Table_Abstract::setDefaultAdapter($dbAdapter);
+		Zend_Registry::set('db', $dbAdapter);
 		
 		/**
 		 * Lets add the configurations and the database handler to Registry

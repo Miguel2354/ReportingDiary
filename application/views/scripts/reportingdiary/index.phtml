@@ -1,3 +1,6 @@
 <div class="well">
 	<a href="<?php echo $this->url(array('controller'=>'businesspartner', 'action'=>'index')); ?>">got to partner list</a>
+	<br />
+	<?php $config = Zend_Registry::get('configuration'); ?>
+	(DB-Infos: <?php echo $config->db->params->host . ', ' . $config->db->params->username . ', ' . $config->db->params->password; ?>)
 </div>
