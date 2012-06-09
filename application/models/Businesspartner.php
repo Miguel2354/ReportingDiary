@@ -7,6 +7,7 @@
  * @version 
  */
 
+include 'helpers/DatabaseAccess.php';
 require_once 'Zend/Db/Table/Abstract.php';
 
 class Businesspartner extends Zend_Db_Table_Abstract {
@@ -17,28 +18,16 @@ class Businesspartner extends Zend_Db_Table_Abstract {
 
 	public function getBusinesspartnerList()
 	{
-		$db = Zend_Registry::get('dbAdapter');
-		$db->getConnection();
-	
-		$sql = 'SELECT * FROM partner';
-		$result = $db->query($sql);
-			
-		$db->closeConnection();
-	
-		return $result->fetchAll();
+		$sql =  'SELECT * FROM partner';
+		
+		return DatabaseAccess::getResult($sql);
 	}
 	
 	public function getBusinesspartner($id)
 	{
-		$db = Zend_Registry::get('dbAdapter');
-		$db->getConnection();
-	
 		$sql = 'SELECT * FROM partner WHERE par_pk = ?';
-		$result = $db->query($sql, array($id));
-			
-		$db->closeConnection();
-	
-		return $result->fetchAll();
+		
+		return DatabaseAccess::getResult($sql);
 	}
 	
 	public function saveBusinesspartner()
