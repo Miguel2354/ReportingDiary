@@ -2,3 +2,4 @@
 .project
 .zfproject.xml
 application/configs/application.ini
+.settings/

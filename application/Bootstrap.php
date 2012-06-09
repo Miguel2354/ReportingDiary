@@ -27,7 +27,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	
 	public function run()
 	{
-		//$this->setupDatabase();	
+		$this->setupDatabase();	
 		//Set layout for all pages	
 		Zend_Layout::startMvc(array('layoutPath' => APPLICATION_PATH . '/views/layouts'));
 		
@@ -41,38 +41,38 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		 * Loading configuration from ini file
 		 */
 		// load configuration
-		Zend_Registry::set('configSection', 'production');
-		$config = new Zend_Config_Ini(ROOT_DIR . '/../application/configs/application.ini',
-				'production');
-		Zend_Registry::set('config', $config);
+		//Zend_Registry::set('configSection', 'production');
+		//$config = new Zend_Config_Ini(APPLICATION_PATH . '/configs/application.ini',
+		//		'production');
+		//Zend_Registry::set('config', $config);
 		
-		//$iniPath = ROOT_DIR . '/../application/configs/application.ini';
-		/*$configuration = new Zend_Config_Ini(
+		$iniPath = APPLICATION_PATH . '/configs/application.ini';
+		$configuration = new Zend_Config_Ini(
 				$iniPath,
 				'production'
-		);*/
+		);
 		
 		/**
 		 * Creating the database handler from the loaded ini file
 		 */
-		//$dbAdapter = Zend_Db::factory($configuration->database);
+		$dbAdapter = Zend_Db::factory($configuration->db);
 		/**
 		 * Lets define the newly created handler as our default database handler
 		*/
-		//Zend_Db_Table_Abstract::setDefaultAdapter($dbAdapter);
+		Zend_Db_Table_Abstract::setDefaultAdapter($dbAdapter);
 		
 		/**
 		 * Lets add the configurations and the database handler to Registry
 		 * to use in future
 		 */
-		//$registry = Zend_Registry::getInstance();
-		//$registry->configuration = $configuration;
-		//$registry->dbAdapter     = $dbAdapter;
+		$registry = Zend_Registry::getInstance();
+		$registry->configuration = $configuration;
+		$registry->dbAdapter     = $dbAdapter;
 		/**
 		 * Now that we have the values on the Registry, lets cleanuo the variables
 		 * from the script scope
 		 */
-		//unset($dbAdapter, $registry, $configuration);
+		unset($dbAdapter, $registry, $configuration);
 	}
 		
 }
