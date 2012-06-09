@@ -23,6 +23,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$view->headLink()->appendStylesheet(ROOT_DIR . '/css/bootstrap.css')
 			 ->headLink()->appendStylesheet(ROOT_DIR . '/css/quitesimply.css');
 		
+		//add script libraries
+		$view->headScript()->appendFile(ROOT_DIR . '/js/bootstrap.js')
+			 ->headScript()->appendFile(ROOT_DIR . '/js/jquery-1.7.2.js')
+			 ->headScript()->appendFile(ROOT_DIR . '/js/highcharts.js');
 	}
 	
 	public function run()
