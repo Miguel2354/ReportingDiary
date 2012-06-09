@@ -15,7 +15,7 @@ class Businesspartner extends Zend_Db_Table_Abstract {
 	 */
 	protected $_name = 'businesspartner';
 
-	public function getPartnerList()
+	public function getBusinesspartnerList()
 	{
 		$db = Zend_Registry::get('db');
 		$db->getConnection();
@@ -28,7 +28,7 @@ class Businesspartner extends Zend_Db_Table_Abstract {
 		return $result->fetchAll();
 	}
 	
-	public function getPartner($id)
+	public function getBusinesspartner($id)
 	{
 		$db = Zend_Registry::get('db');
 		$db->getConnection();
@@ -39,17 +39,5 @@ class Businesspartner extends Zend_Db_Table_Abstract {
 		$db->closeConnection();
 	
 		return $result->fetchAll();
-	}
-	
-	public function savePartner()
-	{
-	}
-	
-	public function updatePartner()
-	{
-	}
-	
-	public function deletePartner()
-	{
 	}
 }

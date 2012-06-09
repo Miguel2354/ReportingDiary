@@ -10,9 +10,10 @@ class BusinesspartnerController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+    	require_once APPLICATION_PATH . '/models/Businesspartner.php';
+		$businesspartner = new Businesspartner();
+		$this->view->businesspartner = $businesspartner->getBusinesspartnerList();
     }
-
 
 }
 
