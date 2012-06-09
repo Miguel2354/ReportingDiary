@@ -1,7 +1,5 @@
 <?php
 
-include APPLICATION_PATH . '/models/Preparation.php';
-
 class PreparationController extends Zend_Controller_Action
 {
 

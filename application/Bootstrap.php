@@ -46,6 +46,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 			// Set layout for all pages	
 			Zend_Layout::startMvc(array('layoutPath' => APPLICATION_PATH . '/views/layouts'));
 			
+			// register Autoloader -> no need to include modules by hand
+			Zend_Loader::registerAutoload();
+			
 			parent::run();
 
 		} catch (Exception $e) {
