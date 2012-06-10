@@ -3,7 +3,7 @@
 
 <br> <br>
 
-	<?php if($this->preparation) : ?>
+	<?php if($this->preparationlist) : ?>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -14,7 +14,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php echo $this->partialLoop('preparation/_preparationRow.phtml', $this->preparation); ?>
+				<?php echo $this->partialLoop('preparation/_preparationRow.phtml', $this->preparationlist); ?>
 			</tbody>
 			<tcaption><h6>Requirements</h6></tcaption>
 		</table>
