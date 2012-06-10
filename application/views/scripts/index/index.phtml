@@ -1,4 +1,6 @@
 <div class="well">
-	Bin noch da!<br>
-	<a href="<?php echo $this->url(array('controller'=>'preparation', 'action'=>'statuschart')); ?>">Chart</a>
-</div> 
+	Bin noch da!<br> <br>
+	<a href="<?php echo $this->url(array('controller'=>'preparation', 'action'=>'status', 'viewSelection'=>'preparation')); ?>">Chart Preparation</a><br>
+	<a href="<?php echo $this->url(array('controller'=>'preparation', 'action'=>'status', 'viewSelection'=>'issue')); ?>">Chart Issue</a><br>
+	<a href="<?php echo $this->url(array('controller'=>'preparation', 'action'=>'status', 'viewSelection'=>'execution')); ?>">Chart Execution</a>
+</div>

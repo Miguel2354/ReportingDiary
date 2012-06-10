@@ -14,11 +14,22 @@ class PreparationController extends Zend_Controller_Action
     	$this->view->preparationlist = $preparation->getPreparationList();
     }
     
-    public function statuschartAction()
+    public function statusAction()
     {
-    	$preparation = new Preparation();
-       	$this->view->statuslist = $preparation->getPreparationStatusCounts();
+    	$status = new Preparation();
+    	switch($this->_request->getParam('viewSelection'))
+    	{
+    		case "preparation":
+       			$this->view->statuslist = $status->getPreparationStatusCounts();	
+       			break;
+    		case "issue":
+    			$this->view->statuslist = $status->getIssueStatusCounts();
+       			break;
+    		case "execution":
+    			$this->view->statuslist = $status->getExecutionStatusCounts();
+       			break;
+    	}
     }
-
+        
 }
 

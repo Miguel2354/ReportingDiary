@@ -7,12 +7,12 @@
  
  $columnchart = new HighRollerColumnChart();
  $columnchart->title->text = 'Column Chart';
- $columnchart->yAxis->title->text = 'Preparation';
+ $columnchart->yAxis->title->text = 'Status';
  $columnchart->yAxis->stackLabels->enabled = true;
  $columnchart->chart->renderTo ='container';
  $columnchart->plotOptions->column->stacking = 'normal';
 
- $columnchart->xAxis->categories = array('Preparation');
+ $columnchart->xAxis->categories = array(' ');
  
  foreach ($this->statuslist as $status) :
  	$series = new HighRollerSeriesData();
