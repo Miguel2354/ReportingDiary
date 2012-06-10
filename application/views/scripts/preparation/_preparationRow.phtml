@@ -1,10 +1,11 @@
 <tr>
 	<td>
-		<a href="<?php echo $this->url(array('action'=>'preparationDetail', 'pid'=>$this->lpr_reqid)); ?>">
-			<?php echo $this->escape($this->lpr_reqid); ?>
+		<a href="<?php echo $this->url(array('action'=>'preparationDetail', 'pid'=>$this->RequirementID)); ?>">
+			<?php echo $this->escape($this->RequirementID); ?>
 		</a>
 	</td>
-	<td><?php echo $this->escape($this->lpr_status); ?></td>
-	<td><?php echo $this->escape($this->lpr_udf8); ?></td>
-	<td><?php echo $this->escape($this->lpr_udf17); ?></td>
+	<td><?php echo $this->escape($this->Status); ?></td>
+	<td><?php echo $this->escape($this->Priority); ?></td>
+	<td><?php echo $this->escape($this->Product); ?></td>
+	<td><?php echo $this->escape($this->Country); ?></td>
 </tr>

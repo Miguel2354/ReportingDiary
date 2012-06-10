@@ -16,7 +16,7 @@
  
  foreach ($this->statuslist as $status) :
  	$series = new HighRollerSeriesData();
-	$series->addName($this->escape($status['status']))->addData(array(intval($this->escape($status['amount']))));
+	$series->addName($this->escape($status['Status']))->addData(array(intval($this->escape($status['Amount']))));
 	$columnchart->addSeries($series);
  endforeach;
 ?>
@@ -31,8 +31,8 @@
 <div class="well">
 	<?php if($this->statuslist) : ?>
 		<?php foreach ($this->statuslist as $status) : ?>
-			[<?php echo $this->escape($status['status']); ?>]
-			<?php echo $this->escape($status['amount']); ?><br />
+			[<?php echo $this->escape($status['Status']); ?>]
+			<?php echo $this->escape($status['Amount']); ?><br />
 		<?php endforeach; ?>
 	<?php else : ?>
 		<div class="alert">Konnte Status-List nicht lesen :-(</div>

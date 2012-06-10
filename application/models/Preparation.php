@@ -17,14 +17,14 @@ class Preparation extends Zend_Db_Table_Abstract {
 	
 	public function getPreparationList()
 	{
-		$sql = 'SELECT lpr_reqid, lpr_status, lpr_udf8, lpr_udf17 FROM load_preparation';
+		$sql = 'SELECT lpr_udf1 as RequirementID, lpr_udf2 as Status, lpr_udf6 as Priority, lpr_udf12 as Product, lpr_udf13 as Country FROM load_preparation';
 
 		return DatabaseAccess::getResult($sql);
 	}
 	
 	public function getPreparationStatusCounts()
 	{	
-		$sql = 'SELECT lpr_status as status, COUNT(*) as amount FROM load_preparation GROUP BY lpr_status;';
+		$sql = 'SELECT lpr_udf2 as Status, COUNT(*) as Amount FROM load_preparation GROUP BY lpr_udf2;';
 	
 		return DatabaseAccess::getResult($sql);
 	}
