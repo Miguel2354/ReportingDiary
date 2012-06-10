@@ -24,7 +24,7 @@ class Preparation extends Zend_Db_Table_Abstract {
 	
 	public function getPreparationStatusCounts()
 	{	
-		$sql = 'SELECT lpr_status, COUNT(*) as amount FROM load_preparation GROUP BY lpr_status;';
+		$sql = 'SELECT lpr_status as status, COUNT(*) as amount FROM load_preparation GROUP BY lpr_status;';
 	
 		return DatabaseAccess::getResult($sql);
 	}

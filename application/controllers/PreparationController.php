@@ -17,7 +17,7 @@ class PreparationController extends Zend_Controller_Action
     public function statuschartAction()
     {
     	$preparation = new Preparation();
-    	$this->view->preparation = $preparation->getPreparationStatusCounts();
+       	$this->view->statuslist = $preparation->getPreparationStatusCounts();
     }
 
 }
