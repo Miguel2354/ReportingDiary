@@ -1,4 +1,3 @@
-<?php $this->headScript()->captureStart() ?>
 $(function () {
     var chart;
     $(document).ready(function() {
@@ -65,18 +64,5 @@ $(function () {
             }]
         });
     });
-});
-<?php $this->headScript()->captureEnd() ?>
-
-<div class="well">
-	<?php if($this->statuslist) : ?>
-		<?php foreach ($this->statuslist as $status) : ?>
-			[<?php echo $this->escape($status['status']); ?>]
-			<?php echo $this->escape($status['amount']); ?><br />
-		<?php endforeach; ?>
-	<?php else : ?>
-		<div class="alert">Konnte Status-List nicht lesen :-(</div>
-	<?php endif; ?>
-</div>
-
-<div id="container"></div>
+    
+});​
