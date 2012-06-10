@@ -31,14 +31,14 @@ class Preparation extends Zend_Db_Table_Abstract {
 	
 	public function getExecutionStatusCounts()
 	{
-		$sql = 'SELECT lex_udf20 as Atatus, COUNT(*) as Amount FROM load_execution GROUP BY lex_udf20;';
+		$sql = 'SELECT lex_udf20 as Status, COUNT(*) as Amount FROM load_execution GROUP BY lex_udf20;';
 	
 		return DatabaseAccess::getResult($sql);
 	}
 	
 	public function getIssueStatusCounts()
 	{
-		$sql = 'SELECT lri_udf2 as Atatus, COUNT(*) as Amount FROM load_risk GROUP BY lri_udf2;';
+		$sql = 'SELECT lri_udf2 as Status, COUNT(*) as Amount FROM load_risk GROUP BY lri_udf2;';
 	
 		return DatabaseAccess::getResult($sql);
 	}
