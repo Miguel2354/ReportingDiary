@@ -1,6 +1,2 @@
-.settings
-.buildpath
-.project
-.zfproject.xml
+nbproject
 application/configs/application.ini
-.settings/
